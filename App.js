@@ -2,18 +2,22 @@ let cardcontainer = document.getElementById("cardcontainer");
 let sebetic = document.getElementById("sebetic");
 let sebetcount1 = document.getElementById("sebetcount1");
 let sebet = [];
-let mehsullar=[]
+let mehsullar = [];
 const sebeticmehsullar = document.getElementById("sebeticmehsullar");
 const total = document.getElementById("total");
-function mehsullarTezele(){
-  cardcontainer.innerHTML =''
-  fetch("https://69b94968e69653ffe6a73340.mockapi.io/mehemmed/mehemmed")
+// function mehsullarTezele(){
+// cardcontainer.innerHTML =''
+fetch("https://69b94968e69653ffe6a73340.mockapi.io/mehemmed/mehemmed")
   .then((res) => res.json())
   .then((data) => {
     mehsullar = data;
-    data.forEach((item) => {
-      cardcontainer.innerHTML += `
-<div id="${item.id}"
+    mehsullarTezele(mehsullar);
+  });
+
+function mehsullarTezele(x) {
+  cardcontainer.innerHTML = x.map(
+      (item) => `
+    <div id="${item.id}"
     class="bg-white border border-gray-200 shadow-md w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4">
     <div class="aspect-[3/2]">
         <img src="${item.image}" class="w-full h-full object-cover" alt="Card image" />
@@ -30,24 +34,24 @@ function mehsullarTezele(){
         </button>
     </div>
 </div>
-`;
-    });
-  });
+    `,
+    )
+    .join("");
 }
-mehsullarTezele()
+
+
 function sebetRender() {
   sebetic.classList.toggle("hidden");
 }
 
 function sebetTezele() {
   if (sebet.length === 0) {
-    sebeticmehsullar.innerHTML = '';
-    sebetRender()
-  }
-  else{
+    sebeticmehsullar.innerHTML = "";
+    sebetRender();
+  } else {
     sebeticmehsullar.innerHTML = sebet
-    .map(
-      (item) => `
+      .map(
+        (item) => `
 <div class="grid sm:grid-cols-3 items-start gap-4 border-b py-4 px-4">
     <div class="sm:col-span-2 flex items-start gap-4">
         <div class="w-28 h-28 shrink-0 bg-gray-100 p-2 rounded-md">
@@ -75,23 +79,23 @@ function sebetTezele() {
     </div>
 </div>
     `,
-    )
-    .join("");
+      )
+      .join("");
   }
   sebetcount();
-  price()
+  price();
 }
 
 function addbasket(id) {
   const prdct = mehsullar.find((p) => p.id == id);
-      const x = sebet.find((p) => p.id == prdct.id);
-      if (x) {
-        x.count++;
-      } else {
-        prdct.count = 1;
-        sebet.push(prdct);
-      }
-      sebetTezele();
+  const x = sebet.find((p) => p.id == prdct.id);
+  if (x) {
+    x.count++;
+  } else {
+    prdct.count = 1;
+    sebet.push(prdct);
+  }
+  sebetTezele();
 }
 
 function deyisCount(id, delta) {
@@ -100,24 +104,28 @@ function deyisCount(id, delta) {
   item.count += delta;
   if (item.count <= 0) {
     removeBasket(id);
+  } else {
+    sebetTezele();
   }
-  else{sebetTezele()};
 }
 
 function removeBasket(id) {
-  sebet = sebet.filter((p) => p.id !== id);
+  sebet = sebet.filter((p) => p.id != id);
   sebetTezele();
 }
 
 function sebetcount() {
   sebetcount1.innerHTML = sebet.length;
 }
-function price(){
-    let totalPay=0
-    sebet.map(item=>totalPay+=item.price*item.count)
-    total.innerHTML=totalPay.toFixed(2)+'$'
+function price() {
+  let totalPay = 0;
+  sebet.map((item) => (totalPay += item.price * item.count));
+  total.innerHTML = totalPay.toFixed(2) + "$";
 }
 
-function getAdd(){
-  window.location.href='Add.htm'
+function getAdd() {
+  window.location.href = "Add.htm";
+}
+function getDelete() {
+  window.location.href = "Delete.htm";
 }

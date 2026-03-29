@@ -1,85 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Məhsul İdarəetməsi</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
+
     <header class="flex bg-white border-b border-gray-300 py-3 sm:px-6 px-4 min-h-[75px] tracking-wide relative z-50">
         <div class="flex max-w-screen-xl mx-auto w-full">
             <div class="flex flex-wrap items-center lg:gap-y-2 gap-4 w-full">
-                <a href="javascript:void(0)" class="max-sm:hidden"><img src="https://readymadeui.com/readymadeui.svg"
-                        alt="logo" class="w-36" />
+
+                <a href="javascript:void(0)" class="max-sm:hidden">
+                    <svg width="67" height="41" viewBox="0 0 67 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M45.0353 4.66312C45.8331 3.77669 46.7195 3.04539 47.6281 2.46921C49.2236 1.47198 50.9079 0.940125 52.6364 0.940125V15.411C51.3732 11.0232 48.6475 7.25591 45.0353 4.66312ZM66.5533 40.9401H15.2957C6.87461 40.9401 0.0712891 34.1146 0.0712891 25.7157C0.0712891 17.6714 6.3206 11.0675 14.232 10.5135V0.940125C16.0048 0.940125 17.7555 1.44982 19.3954 2.46921C20.304 3.02323 21.1904 3.75453 21.9882 4.59663C25.2458 2.31409 29.1904 0.984446 33.4674 0.984446C33.4674 10.2254 30.1433 20.9734 19.3289 20.9955H33.3566C32.9577 19.2005 31.3178 17.8709 29.3677 17.8487H37.5228C35.5727 17.8487 33.9328 19.2005 33.5339 21.0177H46.6087C49.2236 21.0177 51.8164 21.5274 54.2541 22.5468C56.6696 23.544 58.8857 25.0288 60.725 26.8681C62.5865 28.7296 64.0491 30.9235 65.0464 33.339C66.0436 35.7324 66.5533 38.3252 66.5533 40.9401ZM22.8525 10.7795C23.1849 11.6437 24.0713 12.6188 25.3123 13.3279C26.5533 14.0371 27.8386 14.3252 28.7472 14.1922C28.4148 13.3279 27.5284 12.3529 26.2874 11.6437C25.0464 10.9346 23.761 10.6465 22.8525 10.7795ZM41.5117 13.3279C40.2707 14.0371 38.9854 14.3252 38.0768 14.1922C38.4092 13.3279 39.2957 12.3529 40.5367 11.6437C41.7777 10.9346 43.063 10.6465 43.9716 10.7795C43.6613 11.6437 42.7527 12.6188 41.5117 13.3279Z"
+                            fill="#283841"></path>
+                    </svg>
                 </a>
-                <a href="javascript:void(0)" class="hidden max-sm:block"><img
-                        src="https://readymadeui.com/readymadeui-short.svg" alt="logo" class="w-10" />
+                <a href="javascript:void(0)" class="hidden max-sm:block">
+                    <svg width="67" height="41" viewBox="0 0 67 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M45.0353 4.66312C45.8331 3.77669 46.7195 3.04539 47.6281 2.46921C49.2236 1.47198 50.9079 0.940125 52.6364 0.940125V15.411C51.3732 11.0232 48.6475 7.25591 45.0353 4.66312ZM66.5533 40.9401H15.2957C6.87461 40.9401 0.0712891 34.1146 0.0712891 25.7157C0.0712891 17.6714 6.3206 11.0675 14.232 10.5135V0.940125C16.0048 0.940125 17.7555 1.44982 19.3954 2.46921C20.304 3.02323 21.1904 3.75453 21.9882 4.59663C25.2458 2.31409 29.1904 0.984446 33.4674 0.984446C33.4674 10.2254 30.1433 20.9734 19.3289 20.9955H33.3566C32.9577 19.2005 31.3178 17.8709 29.3677 17.8487H37.5228C35.5727 17.8487 33.9328 19.2005 33.5339 21.0177H46.6087C49.2236 21.0177 51.8164 21.5274 54.2541 22.5468C56.6696 23.544 58.8857 25.0288 60.725 26.8681C62.5865 28.7296 64.0491 30.9235 65.0464 33.339C66.0436 35.7324 66.5533 38.3252 66.5533 40.9401ZM22.8525 10.7795C23.1849 11.6437 24.0713 12.6188 25.3123 13.3279C26.5533 14.0371 27.8386 14.3252 28.7472 14.1922C28.4148 13.3279 27.5284 12.3529 26.2874 11.6437C25.0464 10.9346 23.761 10.6465 22.8525 10.7795ZM41.5117 13.3279C40.2707 14.0371 38.9854 14.3252 38.0768 14.1922C38.4092 13.3279 39.2957 12.3529 40.5367 11.6437C41.7777 10.9346 43.063 10.6465 43.9716 10.7795C43.6613 11.6437 42.7527 12.6188 41.5117 13.3279Z"
+                            fill="#283841"></path>
+                    </svg>
                 </a>
 
-                <div id="collapseMenu"
-                    class="lg:ml-6 max-lg:hidden lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50">
-                    <button id="toggleClose"
-                        class="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white w-9 h-9 flex items-center justify-center border border-gray-200 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-black"
-                            viewBox="0 0 320.591 320.591">
-                            <path
-                                d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
-                                data-original="#000000"></path>
-                            <path
-                                d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
-                                data-original="#000000"></path>
-                        </svg>
-                    </button>
-
-                    <ul
-                        class="lg:flex lg:gap-x-3 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
-                        <li class="mb-6 hidden max-lg:block">
-                            <div class="flex items-center justify-between gap-4">
-                                <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui.svg"
-                                        alt="logo" class="w-36" />
-                                </a>
-                                <button
-                                    class="px-4 py-2 text-sm rounded-full text-white border-2 border-blue-700 bg-blue-700 hover:bg-[#004bff]">Sign
-                                    In</button>
-                            </div>
-                        </li>
-                        <li onclick="getAdd()" class="max-lg:border-b max-lg:border-gray-300 max-lg:py-3 px-3"><a href='javascript:void(0)'
-                                class="text-slate-900  text-[30px] rounded-[50%] bg-red-700 w-[50px] h-[50px] text-center block font-bold"><span>+</span></a></li>
-                    </ul>
-                </div>
+                <ul class="lg:flex lg:gap-x-3 max-lg:hidden z-50 lg:ml-6">
+                    <li>
+                        <button onclick="getAdd()"
+                            class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white active:scale-95 transition-all duration-300 shadow-sm cursor-pointer border border-transparent hover:border-blue-700">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            <span class="text-xs font-bold tracking-wide">Əlavə et</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="getDelete()"
+                            class="group flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white active:scale-95 transition-all duration-300 shadow-sm cursor-pointer border border-transparent hover:border-red-600">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <polyline points="3 6 5 6 21 6" />
+                                <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
+                                <path d="M10 11v6m4-6v6" />
+                                <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" />
+                            </svg>
+                            <span class="text-xs font-bold tracking-wide">Sil</span>
+                        </button>
+                    </li>
+                </ul>
 
                 <div class="flex items-center gap-x-6 gap-y-4 ml-auto">
-                    <div
-                        class="flex bg-gray-50 border border-gray-300 focus-within:bg-transparent focus-within:border-gray-500 rounded-full px-4 py-2.5 overflow-hidden max-w-52 max-xl:hidden">
-                        <input type='text' placeholder='Search something...'
-                            class="w-full text-sm bg-transparent outline-0 pr-2" />
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px"
-                            class="cursor-pointer fill-gray-600">
-                            <path
-                                d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
-                            </path>
-                        </svg>
+
+                    <div class="relative max-w-52 max-lg:hidden">
+                        <div
+                            class="flex items-center bg-gray-50 hover:bg-white border border-gray-200 focus-within:bg-white focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-500/10 rounded-full px-4 py-2.5 transition-all duration-300 shadow-sm overflow-hidden">
+                            <input id="searchinput" type="text" placeholder="Search something..."
+                                class="w-full text-sm text-gray-700 bg-transparent outline-none pr-3 placeholder-gray-400" />
+
+                            <button
+                                class="p-1 -mr-1 rounded-full hover:bg-blue-50 transition-colors duration-200 focus:outline-none group">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"
+                                    class="fill-none stroke-gray-400 group-hover:stroke-blue-600 transition-colors duration-200"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="absolute w-[500px] top-full right-1 mt-2 bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden z-50 hidden"
+                            id="dropdown">
+                            <p class="text-[10px] font-semibold uppercase tracking-widest text-gray-400 px-4 pt-3 pb-1">
+                                Nəticələr</p>
+                            <div id="searchlist"></div>
+                        </div>
                     </div>
 
                     <div class="flex items-center sm:space-x-8 space-x-6">
-                        <div class="flex flex-col items-center justify-center gap-0.5 cursor-pointer">
-                            <div class="relative">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="cursor-pointer fill-[#333] inline w-5 h-5" viewBox="0 0 64 64">
-                                    <path
-                                        d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
-                                        data-original="#000000" />
-                                </svg>
-                                <span
-                                    class="absolute left-auto -ml-1 top-0 rounded-full bg-red-500 px-1 py-0 text-xs text-white">0</span>
-                            </div>
-                            <span class="text-[13px] font-semibold text-slate-900">Wishlist</span>
-                        </div>
+
+
                         <div class="flex flex-col items-center justify-center gap-0.5 cursor-pointer">
                             <div class="relative" onclick="sebetRender()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
@@ -94,11 +103,8 @@
                             <span class="text-[13px] font-semibold text-slate-900">Cart</span>
                         </div>
 
-                        <button
-                            class="max-lg:hidden px-5 py-2.5 text-sm font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 cursor-pointer">Sign
-                            In</button>
 
-                        <button id="toggleOpen" class="lg:hidden cursor-pointer">
+                        <button id="toggleOpen" onclick="openDrawer()" class="lg:hidden cursor-pointer">
                             <svg class="w-7 h-7" fill="#333" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -107,55 +113,132 @@
                         </button>
                     </div>
                 </div>
+
             </div>
         </div>
+
+
         <div id="sebetic"
-      class="fixed  hidden inset-0 w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)]">
-      <div class="w-full max-w-lg bg-white shadow-lg relative ml-auto h-screen">
-        <div class="overflow-auto p-6 h-[calc(100vh-124px)]">
-          <div class="flex items-center gap-4">
-            <h3 class="text-xl text-slate-900 font-semibold flex-1">Shopping cart</h3>
-            <svg onclick="sebetRender()" xmlns="http://www.w3.org/2000/svg" class="w-3.5 ml-2 cursor-pointer shrink-0 fill-black hover:fill-red-500"
-              viewBox="0 0 320.591 320.591">
-              <path
-                d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
-                data-original="#000000"></path>
-              <path
-                d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
-                data-original="#000000"></path>
-            </svg>
-          </div>
-
-          <div class="space-y-4 mt-12" id="sebeticmehsullar" >
-            <hr class="border-gray-300" />
-          </div>
+            class="fixed hidden inset-0 w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)]">
+            <div class="w-full max-w-lg bg-white shadow-lg relative ml-auto h-screen">
+                <div class="overflow-auto p-6 h-[calc(100vh-124px)]">
+                    <div class="flex items-center gap-4">
+                        <h3 class="text-xl text-slate-900 font-semibold flex-1">Shopping cart</h3>
+                        <svg onclick="sebetRender()" xmlns="http://www.w3.org/2000/svg"
+                            class="w-3.5 ml-2 cursor-pointer shrink-0 fill-black hover:fill-red-500"
+                            viewBox="0 0 320.591 320.591">
+                            <path
+                                d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z">
+                            </path>
+                            <path
+                                d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="space-y-4 mt-12" id="sebeticmehsullar">
+                        <hr class="border-gray-300" />
+                    </div>
+                </div>
+                <div class="p-4 absolute bottom-0 w-full border-t border-gray-300 bg-white">
+                    <ul class="text-slate-900 divide-y">
+                        <li class="flex flex-wrap gap-4 text-base font-semibold">Subtotal <span id="total"
+                                class="ml-auto">0.00$</span></li>
+                    </ul>
+                    <button type="button"
+                        class="mt-6 text-sm font-medium px-4 py-2.5 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-md tracking-wide cursor-pointer">Proceed
+                        to Checkout</button>
+                </div>
+            </div>
         </div>
 
-        <div class="p-4 absolute bottom-0 w-full border-t border-gray-300 bg-white">
-          <ul class="text-slate-900 divide-y">
-            <li class="flex flex-wrap gap-4 text-base font-semibold">Subtotal <span id="total" class="ml-auto">0.00$</span></li>
-          </ul>
-          <button type="button" class="mt-6 text-sm font-medium px-4 py-2.5 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-md tracking-wide cursor-pointer">Proceed to Checkout</button>
-        </div>
-      </div>
-    </div>
     </header>
-    
+
+    <div id="menuDrawer"
+        class="fixed top-0 right-0 h-full w-64 bg-white z-[200] shadow-xl flex flex-col translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            <span class="text-sm font-semibold text-slate-900">Menyu</span>
+            <button onclick="closeDrawer()"
+                class="w-7 h-7 rounded-md bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 text-base cursor-pointer border-none">
+                ✕
+            </button>
+        </div>
+        <div class="flex-1 py-2 overflow-y-auto">
+
+
+            <button onclick="window.location.href='index.htm'"
+                class="flex items-center gap-3 w-full px-5 py-2.5 hover:bg-gray-50 transition-colors cursor-pointer border-none bg-transparent text-left">
+                <span
+                    class="w-8 h-8 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center flex-shrink-0">
+                    <svg width="16" height="16" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                </span>
+                <span class="text-sm font-medium text-slate-900">Ana səhifə</span>
+            </button>
+
+            <button onclick="getAdd(); closeDrawer()"
+                class="flex items-center gap-3 w-full px-5 py-2.5 hover:bg-gray-50 transition-colors cursor-pointer border-none bg-transparent text-left">
+                <span class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <svg width="16" height="16" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" viewBox="0 0 24 24">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                </span>
+                <span class="text-sm font-medium text-slate-900">Məhsul əlavə et</span>
+            </button>
+
+            <button onclick="getDelete(); closeDrawer()"
+                class="flex items-center gap-3 w-full px-5 py-2.5 hover:bg-gray-50 transition-colors cursor-pointer border-none bg-transparent text-left">
+                <span class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0">
+                    <svg width="16" height="16" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" viewBox="0 0 24 24">
+                        <polyline points="3 6 5 6 21 6" />
+                        <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
+                        <path d="M10 11v6m4-6v6" />
+                        <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" />
+                    </svg>
+                </span>
+                <span class="text-sm font-medium text-slate-900">Məhsul sil</span>
+            </button>
+
+            <div class="h-px bg-gray-100 mx-5 my-2"></div>
+
+
+
+        </div>
+    </div>
     <main>
-
         <div class="category py-12">
-            <ul id="catlist" class="flex items-center justify-center gap-5 flex-wrap p-3"></ul>
+            <ul id="catlist" class="flex items-center justify-center gap-5 flex-wrap p-3">
+                <li class="px-5 py-2.5 rounded-full border-4 border-gray-200 bg-white text-sm font-medium text-gray-600 cursor-pointer hover:border-gray-400 hover:bg-gray-50 transition-all capitalize"
+                    onclick="kateqoriyaSecin('all')">
+                    All
+                </li>
+            </ul>
         </div>
-
-        <div id="cardcontainer" class="flex items-center flex-wrap gap-5 justify-center">
-
-        </div>
+        <div id="cardcontainer" class="flex items-center flex-wrap gap-5 justify-center"></div>
     </main>
+
     <script src="App.js"></script>
+    <script src="Cat.js"></script>
+    <script src="serch.js"></script>
+    <!-- <script src="Delete.js"></script> -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-  AOS.init();
-</script>
+        AOS.init();
+
+        function openDrawer() {
+            document.getElementById('menuDrawer').classList.remove('translate-x-full');
+        }
+
+        function closeDrawer() {
+            document.getElementById('menuDrawer').classList.add('translate-x-full');
+        }
+    </script>
 </body>
 
 </html>

@@ -12,7 +12,7 @@ function elaveET() {
   const imgValue = img.value;
   const data = {
     title: titleValue,
-    price: priceValue,
+    price: parseFloat(priceValue),
     description: descValue,
     category: categoryValue,
     image: imgValue,
@@ -23,6 +23,16 @@ function elaveET() {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
+  }).then(() => {
+    const artiqVar = categoryler.some(c => c.name === categoryValue);
+
+    if (!artiqVar) {
+      return fetch("https://69b94968e69653ffe6a73340.mockapi.io/mehemmed/category", {
+        method: "POST",
+        body: JSON.stringify({ name: categoryValue }),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      });
+    }
   })
   .then(() => {
     title.value = '';
