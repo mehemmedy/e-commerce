@@ -1,6 +1,8 @@
 let cardcontainer = document.getElementById("cardcontainer");
 let sebetic = document.getElementById("sebetic");
 let sebetcount1 = document.getElementById("sebetcount1");
+
+const Base_Api="https://69b94968e69653ffe6a73340.mockapi.io/mehemmed/mehemmed"
 let sebet = [];
 let mehsullar = [];
 const sebeticmehsullar = document.getElementById("sebeticmehsullar");
@@ -15,27 +17,69 @@ fetch("https://69b94968e69653ffe6a73340.mockapi.io/mehemmed/mehemmed")
   });
 
 function mehsullarTezele(x) {
-  cardcontainer.innerHTML = x.map(
-      (item) => `
-    <div id="${item.id}"
-    class="bg-white border border-gray-200 shadow-md w-full max-w-sm rounded-lg overflow-hidden mx-auto mt-4">
-    <div class="aspect-[3/2]">
-        <img src="${item.image}" class="w-full h-full object-cover" alt="Card image" />
-    </div>
-    <div class="p-6">
-        <h3 class="text-slate-900 text-xl font-semibold">${item.title}</h3>
-        <p class="mt-3 text-sm text-slate-500">Kateqoriya: ${item.category}</p>
-        <p class="mt-3 text-sm font-bold text-slate-700">$${item.price}</p>
-        <p class="mt-3 text-sm text-slate-500">${item.description.slice(0, 70)}...</p>
-        <button onclick="addbasket(${item.id})" type="button"
-            class="mt-6 px-6 py-2.5 rounded-lg text-white text-sm font-medium
-                    bg-blue-600 hover:bg-blue-700 cursor-pointer">
-            <i class="fa-solid fa-cart-shopping"></i>
-        </button>
-    </div>
+  cardcontainer.innerHTML = x
+    .map((item) => {
+      const slug = slugCreate(item.title);
+
+      return `
+      <div  id="${item.id}"
+        class="w-full max-w-sm bg-white border border-gray-200 rounded-xl shadow-sm mx-auto mt-4 overflow-hidden flex flex-col">
+
+        <div class="h-48 w-full p-4 bg-white flex items-center justify-center border-b border-gray-100">
+          <img src="${item.image}" 
+               class="max-w-full max-h-full object-contain" 
+               alt="${item.title}" />
+        </div>
+
+        <div class="p-4 flex flex-col flex-grow">
+          <div class="flex justify-between items-start gap-2 mb-1">
+            <h3 class="text-slate-900 text-lg font-semibold leading-tight line-clamp-2">
+              ${item.title}
+            </h3>
+            <span class="text-lg font-semibold text-slate-900">
+              $${item.price}
+            </span>
+          </div>
+
+          <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            ${item.category}
+          </p>
+
+          <p class="text-sm text-gray-600 mb-5 line-clamp-2 flex-grow">
+            ${item.description}
+          </p>
+
+          <div class="flex gap-3 mt-5">
+
+  <a href="DetailPage.htm?s=${slug}"
+     class="flex-1 flex items-center justify-center gap-2 
+            py-2.5 rounded-xl text-sm font-medium
+            border border-gray-200 text-gray-700
+            hover:bg-gray-50 hover:border-gray-300
+            transition-all duration-200">
+
+    <i class="fa-regular fa-eye text-base"></i>
+    <span>Daha Etrafli</span>
+  </a>
+
+  <button onclick="addbasket(${item.id})"
+    class="flex-1 flex items-center justify-center gap-2 
+           py-2.5 rounded-xl text-sm font-semibold
+           text-white bg-blue-600 
+           hover:bg-blue-700 
+           shadow-sm hover:shadow-md
+           active:scale-95 active:shadow-sm
+           transition-all duration-200">
+
+    <i class="fa-solid fa-cart-shopping text-base"></i>
+    <span>Səbətə at</span>
+  </button>
+
 </div>
-    `,
-    )
+        </div>
+      </div>
+      `;
+    })
     .join("");
 }
 
@@ -128,4 +172,16 @@ function getAdd() {
 }
 function getDelete() {
   window.location.href = "Delete.htm";
+}
+
+
+function slugCreate(title) {
+    return title
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '') // Xüsusi simvolları silir
+        .replace(/[\s_-]+/g, '-') // Boşluqları tire ilə əvəz edir
+        .replace(/^-+|-+$/g, ''); // Başda və sonda tireni silir
+
+   
 }

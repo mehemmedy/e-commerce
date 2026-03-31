@@ -13,7 +13,7 @@ searchinput.addEventListener("input", () => {
 function axtarMehsul(x) {
   const keyword = x.toLowerCase();
   const axtarfilter = mehsullar.filter((item) =>
-    item.title.toLowerCase().includes(keyword),
+    item.title.toLowerCase().startsWith(keyword),
   );
   axtarfilter.length > 0
   ? searcProduct(axtarfilter)

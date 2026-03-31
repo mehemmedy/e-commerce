@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Product View</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <section id="detaillist" class="max-w-7xl mx-auto px-4 py-10">
+       
+    </section>
+    
+    <script>
+        const Base_Api = "https://69b94968e69653ffe6a73340.mockapi.io/mehemmed/mehemmed"
+        let detaillist = document.getElementById('detaillist')
+
+        function slugCreate(title) {
+            return title
+                .toLowerCase()
+                .trim()
+                .replace(/[^\w\s-]/g, '') // Xüsusi simvolları silir
+                .replace(/[\s_-]+/g, '-') // Boşluqları tire ilə əvəz edir
+                .replace(/^-+|-+$/g, ''); // Başda və sonda tireni silir
+
+
+        }
+
+        function getDetail() {
+            const urlParams = new URLSearchParams(window.location.search)
+            const sendslug = urlParams.get('s')
+            fetch(Base_Api)
+                .then(res => res.json())
+                .then(p => {
+                    const product = p.find(item=>slugCreate(item.title)==sendslug)
+                   detaillist.innerHTML = `
+<div class="bg-white rounded-3xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0">
+
+    <div class="bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-8 md:p-12">
+        <div class="bg-white rounded-2xl shadow-md p-6 w-full max-w-md flex items-center justify-center">
+            <img src="${product.image}" 
+                alt="${product.title}"
+                class="max-h-[420px] w-full object-contain hover:scale-105 transition duration-300">
+        </div>
+    </div>
+
+    <div class="p-6 md:p-10 flex flex-col justify-center">
+        <span class="inline-block w-fit px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
+            ${product.category}
+        </span>
+
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+            ${product.title}
+        </h1>
+
+        <div class="flex items-center gap-3 mb-5">
+            <span class="text-sm text-gray-600 font-medium">
+                ${product.rating.rate} Rating
+            </span>
+            <span class="text-sm text-gray-400">
+                (${product.rating.count} reviews)
+            </span>
+        </div>
+
+        <div class="mb-6">
+            <span class="text-4xl font-bold text-blue-600">
+                $${product.price}
+            </span>
+        </div>
+
+        <p class="text-gray-600 leading-7 mb-8">
+            ${product.description}
+        </p>
+    </div>
+    <button type="button" onclick="bagla()"
+    class="col-span-1 md:col-span-2 
+           mt-4 py-3 w-full 
+           rounded-b-3xl
+           bg-gradient-to-r from-slate-900 to-slate-800 
+           text-white font-medium text-sm tracking-wide
+           hover:from-slate-800 hover:to-slate-700
+           transition-all duration-200">
+    ← Geri Qayıt
+</button>
+</div>
+
+`;
+                    
+                })
+        }
+        getDetail()
+        function bagla(){
+    window.location.href = 'index.htm';
+}
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+
+</html>
